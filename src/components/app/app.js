@@ -104,6 +104,25 @@ export default class App extends Component {
       return item.label.toLowerCase().indexOf(search.toLowerCase()) > -1;
     });
   }
+  
+  saveToLocalStorage = () => {
+    localStorage.setItem('todoData', JSON.stringify(this.state.items));
+  }
+
+  getFromLocalStorage = () => {
+    if (JSON.parse(localStorage.getItem('todoData')) !== null)
+      this.setState({ 
+        items: JSON.parse(localStorage.getItem('todoData')) 
+      })
+  }
+
+  componentDidMount() {
+    this.getFromLocalStorage()
+  }
+
+  componentDidUpdate() {
+    this.saveToLocalStorage()
+  }
 
   render() {
     const { items, filter, search } = this.state;
