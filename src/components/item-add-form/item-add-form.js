@@ -15,7 +15,6 @@ export default class ItemAddForm extends Component {
   };
 
   onSubmit = (event) => {
-<<<<<<< HEAD
     event.preventDefault()
     const {label} = this.state
     if (label !== '') {
@@ -25,17 +24,6 @@ export default class ItemAddForm extends Component {
         });
     }
 }
-=======
-        event.preventDefault()
-        const {label} = this.state
-        if (label !== '') {
-            this.props.onItemAdded(label)
-            this.setState({
-                label: ''
-            });
-        }
-    }
->>>>>>> fa3911d4863f8d54f6de53ddc6f5ee106c838f16
 
   render() {
     return (
